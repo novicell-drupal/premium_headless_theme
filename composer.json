@@ -1,0 +1,7 @@
+{
+    "name": "novicell/premium_headless_theme",
+    "type": "drupal-theme",
+    "description": "Premium headless theme",
+    "minimum-stability": "dev",
+    "license": "GPL-2.0+"
+}

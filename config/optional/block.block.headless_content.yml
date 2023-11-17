@@ -1,0 +1,19 @@
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - premium_headless_theme
+id: headless_content
+theme: headless
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Primært sideindhold'
+  label_display: '0'
+  provider: system
+visibility: {  }

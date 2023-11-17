@@ -1,0 +1,19 @@
+langcode: da
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - premium_headless_theme
+id: headless_help
+theme: headless
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Hjælp
+  label_display: '0'
+  provider: help
+visibility: {  }
