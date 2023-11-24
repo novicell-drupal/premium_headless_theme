@@ -10,7 +10,7 @@ dependencies:
   - premium_core
 
 libraries:
-  - headless/master
+  - premium_headless_theme/master
   - claro/global-styling
   - gin/gin
 
