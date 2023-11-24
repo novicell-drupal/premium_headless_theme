@@ -1,17 +1,17 @@
-langcode: da
+langcode: en
 status: true
 dependencies:
   theme:
     - premium_headless_theme
 id: headless_secondary_local_tasks
-theme: headless
+theme: premium_headless_theme
 region: pre_content
 weight: -4
 provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
-  label: 'Sekundære faneblade'
+  label: 'Secondary tabs'
   label_display: '0'
   provider: core
   primary: false

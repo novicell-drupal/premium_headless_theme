@@ -1,4 +1,4 @@
-langcode: da
+langcode: en
 status: true
 dependencies:
   module:
@@ -6,14 +6,14 @@ dependencies:
   theme:
     - premium_headless_theme
 id: headless_breadcrumbs
-theme: headless
+theme: premium_headless_theme
 region: breadcrumb
 weight: 0
 provider: null
 plugin: system_breadcrumb_block
 settings:
   id: system_breadcrumb_block
-  label: Brødkrummer
+  label: Breadcrumbs
   label_display: '0'
   provider: system
 visibility: {  }

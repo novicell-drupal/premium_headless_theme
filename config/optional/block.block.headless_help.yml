@@ -1,4 +1,4 @@
-langcode: da
+langcode: en
 status: true
 dependencies:
   module:
@@ -6,14 +6,14 @@ dependencies:
   theme:
     - premium_headless_theme
 id: headless_help
-theme: headless
+theme: premium_headless_theme
 region: help
 weight: 0
 provider: null
 plugin: help_block
 settings:
   id: help_block
-  label: Hjælp
+  label: Help
   label_display: '0'
   provider: help
 visibility: {  }

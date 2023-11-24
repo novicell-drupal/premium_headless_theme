@@ -1,17 +1,17 @@
-langcode: da
+langcode: en
 status: true
 dependencies:
   theme:
     - premium_headless_theme
 id: headless_local_actions
-theme: headless
+theme: premium_headless_theme
 region: content
 weight: -10
 provider: null
 plugin: local_actions_block
 settings:
   id: local_actions_block
-  label: 'Primære administratorhandlinger'
+  label: 'Primary admin actions'
   label_display: '0'
   provider: core
 visibility: {  }
