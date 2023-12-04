@@ -140,16 +140,18 @@ function premium_headless_theme_preprocess_paragraph__basic_hero(array &$variabl
     $variables['title'] = $variables['elements']['#title'];
   }
 
-  try {
-    if (!$paragraph->get('field_color_theme')
-        ->isEmpty() && !empty($paragraph->get('field_color_theme')
-        ->first()
-        ->getValue())) {
-      /** @var \Drupal\styles\StylesManager $styles */
-      $styles = Drupal::service('styles.manager');
-      $styles->applyTo($paragraph->get('field_color_theme'), $variables);
+  if ($paragraph->hasField('field_color_theme')) {
+    try {
+      if (!$paragraph->get('field_color_theme')
+          ->isEmpty() && !empty($paragraph->get('field_color_theme')
+          ->first()
+          ->getValue())) {
+        /** @var \Drupal\styles\StylesManager $styles */
+        $styles = Drupal::service('styles.manager');
+        $styles->applyTo($paragraph->get('field_color_theme'), $variables);
+      }
+    } catch (InvalidArgumentException|MissingDataException $e) {
     }
-  } catch (MissingDataException $e) {
   }
 }
 
