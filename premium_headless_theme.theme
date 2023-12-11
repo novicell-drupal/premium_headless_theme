@@ -23,7 +23,7 @@ function premium_headless_theme_preprocess_block__inline_block(&$variables) {
 }
 
 function _premium_headless_theme_add_block_header(&$variables) {
-  $variables['#attached']['library'][] = 'headless/layout-builder';
+  $variables['#attached']['library'][] = 'premium_headless_theme/layout-builder';
   /** @var \Drupal\block_content\Entity\BlockContent $block */
   $block = $variables['elements']['content']['#block_content'] ?? NULL;
   if (empty($block)) {
