@@ -122,6 +122,7 @@
   mask-image: url("../misc/sprite.svg#drag-view");
 }
 
+.paragraph--view-mode--teaser,
 .node--view-mode-teaser {
   display: inline-block;
   padding: 1em;
@@ -134,6 +135,7 @@
   flex-basis: min-content;
 }
 
+.paragraph--view-mode--thumbnail,
 .node--view-mode-thumbnail {
   display: inline-block;
   margin-right: 1em;
@@ -142,6 +144,7 @@
 }
 
 .field--type-entity-reference,
+.field--type-entity-reference-revisions,
 .field--type-overview-filter {
   display: flex;
   flex-wrap: wrap;
