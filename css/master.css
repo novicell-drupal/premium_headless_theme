@@ -122,6 +122,7 @@
   mask-image: url("../misc/sprite.svg#drag-view");
 }
 
+.taxonomy-term--view-mode-teaser,
 .paragraph--view-mode--teaser,
 .node--view-mode-teaser {
   display: inline-block;
@@ -135,6 +136,7 @@
   flex-basis: min-content;
 }
 
+.taxonomy-term--view-mode-thumbnail,
 .paragraph--view-mode--thumbnail,
 .node--view-mode-thumbnail {
   display: inline-block;
