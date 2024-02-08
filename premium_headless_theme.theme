@@ -24,57 +24,62 @@ function premium_headless_theme_preprocess_block__inline_block(&$variables) {
 
 function _premium_headless_theme_add_block_header(&$variables) {
   $variables['#attached']['library'][] = 'premium_headless_theme/layout-builder';
-  /** @var \Drupal\block_content\Entity\BlockContent $block */
-  $block = $variables['elements']['content']['#block_content'] ?? NULL;
-  if (empty($block)) {
-    $variables['block_title'] = ['#markup' => '<i>Blok mangler</i>'];
-  } else {
-    /** @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface $bundle_info */
-    $bundle_info = \Drupal::service("entity_type.bundle.info");
-    $info = $bundle_info->getBundleInfo('block_content');
-    $variables['block_title'] = $info[$block->bundle()]['label'];
+  if (empty($variables['block_title'])) {
+    /** @var \Drupal\block_content\Entity\BlockContent $block */
+    $block = $variables['elements']['content']['#block_content'] ?? NULL;
+    if (empty($block)) {
+      $variables['block_title'] = ['#markup' => '<i>Blok mangler</i>'];
+    }
+    else {
+      /** @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface $bundle_info */
+      $bundle_info = \Drupal::service("entity_type.bundle.info");
+      $info = $bundle_info->getBundleInfo('block_content');
+      $variables['block_title'] = $info[$block->bundle()]['label'];
+    }
   }
 
-  $variables['operations'] = [
-    '#type' => 'container',
-    '#attributes' => [
-      'class' => ['block-operations']
-    ]
-  ];
-  if (isset($variables['elements']['#contextual_links']['layout_builder_block']['route_parameters'])) {
-    $route_parameters = $variables['elements']['#contextual_links']['layout_builder_block']['route_parameters'];
-    $attributes = [
-      'class' => ['use-ajax', 'block-operation', 'button', 'action-link'],
-      'data-dialog-type' => "dialog",
-      'data-dialog-renderer' => "off_canvas"
+  if (empty($variables['operations'])) {
+    $variables['operations'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['block-operations']
+      ]
     ];
-    $variables['operations']['configure'] = [
-      '#type' => 'link',
-      '#title' => t('Configure'),
-      '#url' => Url::fromRoute('layout_builder.update_block', $route_parameters),
-      '#attributes' => $attributes
-    ];
-    $variables['operations']['configure']['#attributes']['class'][] = 'block-operation--configure';
-    $variables['operations']['configure']['#attributes']['class'][] = 'action-link--icon-edit';
-    $variables['operations']['move'] = [
-      '#type' => 'link',
-      '#title' => t('Move'),
-      '#url' => Url::fromRoute('layout_builder.move_block_form', $route_parameters),
-      '#attributes' => $attributes
-    ];
-    $variables['operations']['move']['#attributes']['class'][] = 'block-operation--move';
-    $variables['operations']['move']['#attributes']['class'][] = 'action-link--icon-drag';
-    $variables['operations']['remove'] = [
-      '#type' => 'link',
-      '#title' => t('Remove'),
-      '#url' => Url::fromRoute('layout_builder.remove_block', $route_parameters),
-      '#attributes' => $attributes
-    ];
-    $variables['operations']['remove']['#attributes']['class'][] = 'block-operation--remove';
-    $variables['operations']['remove']['#attributes']['class'][] = 'action-link--icon-trash';
-    $variables['operations']['remove']['#attributes']['class'][] = 'action-link--danger';
-    unset($variables['elements']['#contextual_links']['layout_builder_block']);
-    unset($variables['title_suffix']['contextual_links']);
+    if (isset($variables['elements']['#contextual_links']['layout_builder_block']['route_parameters'])) {
+      $route_parameters = $variables['elements']['#contextual_links']['layout_builder_block']['route_parameters'];
+      $attributes = [
+        'class' => ['use-ajax', 'block-operation', 'button', 'action-link'],
+        'data-dialog-type' => "dialog",
+        'data-dialog-renderer' => "off_canvas"
+      ];
+      $variables['operations']['configure'] = [
+        '#type' => 'link',
+        '#title' => t('Configure'),
+        '#url' => Url::fromRoute('layout_builder.update_block', $route_parameters),
+        '#attributes' => $attributes
+      ];
+      $variables['operations']['configure']['#attributes']['class'][] = 'block-operation--configure';
+      $variables['operations']['configure']['#attributes']['class'][] = 'action-link--icon-edit';
+      $variables['operations']['move'] = [
+        '#type' => 'link',
+        '#title' => t('Move'),
+        '#url' => Url::fromRoute('layout_builder.move_block_form', $route_parameters),
+        '#attributes' => $attributes
+      ];
+      $variables['operations']['move']['#attributes']['class'][] = 'block-operation--move';
+      $variables['operations']['move']['#attributes']['class'][] = 'action-link--icon-drag';
+      $variables['operations']['remove'] = [
+        '#type' => 'link',
+        '#title' => t('Remove'),
+        '#url' => Url::fromRoute('layout_builder.remove_block', $route_parameters),
+        '#attributes' => $attributes
+      ];
+      $variables['operations']['remove']['#attributes']['class'][] = 'block-operation--remove';
+      $variables['operations']['remove']['#attributes']['class'][] = 'action-link--icon-trash';
+      $variables['operations']['remove']['#attributes']['class'][] = 'action-link--danger';
+      unset($variables['elements']['#contextual_links']['layout_builder_block']);
+      unset($variables['title_suffix']['contextual_links']);
+    }
   }
 }
 
