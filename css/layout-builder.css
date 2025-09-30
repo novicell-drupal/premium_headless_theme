@@ -145,15 +145,3 @@
     flex-direction: row-reverse;
   }
 }
-
-.ui-dialog:not(.ui-dialog-position-side) {
-  top: 50% !important;
-  height: 80% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%);
-}
-
-.ui-dialog:not(.ui-dialog-position-side) .ui-dialog-content {
-  max-height: calc(100% - 118px) !important;
-  min-height: calc(100% - 118px) !important;
-}
