@@ -9,10 +9,17 @@
 
 .layout-builder__add-block {
     background: none;
+}
 
 .layout-builder.is-layout-builder-highlighted {
-        margin: 0;
-    }
+    margin: 0;
+}
+.layout-builder-form {
+    margin-bottom: 1em;
+}
+
+.layout-builder-form .vertical-tabs {
+    display: none;
 }
 
 .layout-builder__layout {
@@ -52,7 +59,7 @@
     outline: 2px dashed var(--gin-color-primary);
 }
 
-.layout-builder__link--add {
+.layout-builder .layout-builder__link--add {
     color: var(--gin-color-primary);
     background: none;
     display: block;
@@ -61,6 +68,13 @@
     transition: var(--gin-transition);
     font-size: 1rem;
     font-weight: 700;
+}
+
+.layout-builder .layout-builder__link--add::before {
+    margin-left: -0.25em;
+    padding-right: 0.25em;
+    content: "+";
+    font-weight: 900;
 }
 
 .layout__region .block .block--title .block-operations {
@@ -142,6 +156,6 @@
 }
 
 .action-link--icon-edit::before {
-    -webkit-mask-image: url("../misc/sprite.svg#media-edit-view");
-    mask-image: url("../misc/sprite.svg#media-edit-view");
+    -webkit-mask-image: url("../misc/sprite.svg#edit-view");
+    mask-image: url("../misc/sprite.svg#edit-view");
 }
